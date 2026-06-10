@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Support - GreenAura</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body style="margin: 0; background-color: #f9fafb; font-family: 0.7rem;">
+
+    <header class="site-header">
+        <div class="nav-container">
+            <div class="brand-logo">
+                <div class="logo-icon"><i class="fa-solid fa-leaf"></i></div>
+                <span class="logo-text">Green<span class="logo-highlight">Aura</span></span>
+            </div>
+            
+           <nav class="main-nav">
+                <a href="index.html" class="nav-link active">Home</a>
+                 <a href="about.html" class="nav-link">About</a>
+                <a href="charity.html" class="nav-link">Charity Needs</a>
+                <a href="marketplace.html" class="nav-link">Marketplace</a>
+                <a href="rider.html" class="nav-link">Rider Service</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+            
+            <div class="header-actions" style="display: flex; align-items: center; gap: 15px;">
+                <a href="javascript:void(0)" onclick="toggleCartDrawer(true)" class="cart-btn" style="text-decoration: none; position: relative; color: #111827; font-size: 1.2rem; padding: 6px;">
+                    <i class="fa-solid fa-basket-shopping"></i>
+                    <span style="position: absolute; top: -4px; right: -6px; background-color: #00a86b; color: white; font-size: 0.7rem; font-weight: bold; border-radius: 50%; width: 16px; height: 16px; display: flex; align-items: center; justify-content: center;">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main style="max-width: 1000px; margin: 50px auto; padding: 0 20px; box-sizing: border-box;">
+        
+        <div style="text-align: center; margin-bottom: 40px;">
+            <span style="background-color: #e6f6f0; color: #00a86b; padding: 6px 12px; border-radius: 6px; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.05em; display: inline-block; margin-bottom: 12px;">
+                GET IN TOUCH
+            </span>
+            <h1 style="font-size: 2.2rem; color: #111827; margin: 0 0 10px 0; font-weight: 700;">Contact Support Hub</h1>
+            <p style="color: #6b7280; font-size: 1rem; max-width: 600px; margin: 0 auto; line-height: 1.5;">
+                Have questions about listing items, donation requirements, or tracking an ongoing rider delivery route dispatch? Send us a message.
+            </p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 400px; gap: 40px; align-items: start;">
+            
+            <div style="background: white; border: 1px solid #e5e7eb; border-radius: 12px; padding: 30px; box-shadow: 0 2px 4px rgba(0,0,0,0.01);">
+                <form onsubmit="handleInquirySubmit(event)">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px;">
+                        <div>
+                            <label style="display: block; font-size: 0.85rem; font-weight: 600; color: #4b5563; margin-bottom: 6px;">Your Name</label>
+                            <input type="text" required placeholder="John Doe" style="width: 100%; padding: 10px; border: 1px solid #d1d5db; border-radius: 6px; box-sizing: border-box;">
+                        </div>
+                        <div>
+                            <label style="display: block; font-size: 0.85rem; font-weight: 600; color: #4b5563; margin-bottom: 6px;">Email Address</label>
+                            <input type="email" required placeholder="john@example.com" style="width: 100%; padding: 10px; border: 1px solid #d1d5db; border-radius: 6px; box-sizing: border-box;">
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 15px;">
+                        <label style="display: block; font-size: 0.85rem; font-weight: 600; color: #4b5563; margin-bottom: 6px;">Inquiry Category</label>
+                        <select style="width: 100%; padding: 10px; border: 1px solid #d1d5db; border-radius: 6px; box-sizing: border-box; background-color: white;">
+                            <option>General Platform Inquiries</option>
+                            <option>Marketplace Listing Verification</option>
+                            <option>Charity Drop-Off Logistics</option>
+                            <option>Rider Delivery Operations</option>
+                        </select>
+                    </div>
+
+                    <div style="margin-bottom: 20px;">
+                        <label style="display: block; font-size: 0.85rem; font-weight: 600; color: #4b5563; margin-bottom: 6px;">Detailed Message Description</label>
+                        <textarea required rows="5" placeholder="Explain your feedback or question here..." style="width: 100%; padding: 10px; border: 1px solid #d1d5db; border-radius: 6px; box-sizing: border-box; font-family: sans-serif; resize: vertical;"></textarea>
+                    </div>
+
+                    <button type="submit" style="background-color: #00a86b; color: white; border: none; padding: 12px 24px; border-radius: 6px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 8px;">
+                        <i class="fa-solid fa-paper-plane"></i> Dispatch Message Node
+                    </button>
+                </form>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 20px;">
+                
+                <div style="background: white; border: 1px solid #e5e7eb; border-radius: 12px; padding: 24px;">
+                    <h3 style="margin: 0 0 15px 0; font-size: 1.1rem; color: #111827; display: flex; align-items: center; gap: 8px;">
+                        <i class="fa-solid fa-warehouse" style="color: #00a86b;"></i> Primary Material Hub
+                    </h3>
+                    <p style="margin: 0 0 10px 0; font-size: 0.9rem; color: #4b5563; line-height: 1.4;">
+                        <strong>GreenAura Logistics Base Alpha</strong><br>
+                        86400 Parit Raja, Batu Pahat,<br>
+                        Johor, Malaysia.
+                    </p>
+                    <div style="font-size: 0.8rem; color: #6b7280;">
+                        <i class="fa-solid fa-clock"></i> Drop-offs accepted: 9:00 AM - 5:00 PM
+                    </div>
+                </div>
+
+                
+
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="section-container footer-copyright">
+            <p>&copy; 2026 GreenAura Team.</p>
+        </div>
+    </footer>
+
+    <div id="cartDrawer" style="position: fixed; top: 0; right: -450px; width: 100%; max-width: 400px; height: 100%; background-color: white; z-index: 10000; transition: right 0.3s ease;"></div>
+    <div id="cartOverlay" onclick="toggleCartDrawer(false)" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.3); z-index: 9999;"></div>
+
+    <script>
+        function handleInquirySubmit(event) {
+            event.preventDefault();
+            alert("🚀 Inquiry Dispatched successfully!\nOur core platform maintenance queue has received your submission profile parameters.");
+            event.target.reset(); // clear the input inputs cleanly
+        }
+    </script>
+    <script src="cart.js"></script>
+</body>
+</html>

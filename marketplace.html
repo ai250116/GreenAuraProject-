@@ -1,0 +1,148 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketplace - GreenAura</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body style="margin: 0; background-color: #f9fafb; font-family: 0.7rem;">
+
+   <header class="site-header">
+        <div class="nav-container">
+            <div class="brand-logo">
+                <div class="logo-icon"><i class="fa-solid fa-leaf"></i></div>
+                <span class="logo-text">Green<span class="logo-highlight">Aura</span></span>
+            </div>
+            
+           <nav class="main-nav">
+                <a href="index.html" class="nav-link active">Home</a>
+                 <a href="about.html" class="nav-link">About</a>
+                <a href="charity.html" class="nav-link">Charity Needs</a>
+                <a href="marketplace.html" class="nav-link">Marketplace</a>
+                <a href="rider.html" class="nav-link">Rider Service</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+            
+            <div class="header-actions" style="display: flex; align-items: center; gap: 15px;">
+                <a href="javascript:void(0)" onclick="toggleCartDrawer(true)" class="cart-btn" style="text-decoration: none; position: relative; color: #111827; font-size: 1.2rem; padding: 6px;">
+                    <i class="fa-solid fa-basket-shopping"></i>
+                    <span style="position: absolute; top: -4px; right: -6px; background-color: #00a86b; color: white; font-size: 0.7rem; font-weight: bold; border-radius: 50%; width: 16px; height: 16px; display: flex; align-items: center; justify-content: center;">0</span>
+                </a>
+                <a href="auth.html" class="btn btn-primary" style="text-decoration: none;">Get Started</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section style="max-width: 1200px; margin: 50px auto; padding: 0 20px;">
+            <h2 style="font-size: 1.8rem; color: #111827; margin-bottom: 30px; font-weight: 700;">Pre-Loved Marketplace Listings</h2>
+            
+            <div class="product-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 25px;">
+
+                <div class="product-card" style="background: white; border: 1px solid #e5e7eb; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
+                    <div style="position: relative; height: 220px; background-color: #f3f4f6; display: flex; align-items: center; justify-content: center;">
+                        <img src="table.jpg" alt="Study Desk" style="width: 100%; height: 100%; object-fit: cover;">
+                        <span style="position: absolute; top: 15px; left: 15px; background-color: #00a86b; color: white; padding: 5px 10px; border-radius: 6px; font-weight: bold; font-size: 0.85rem;">RM 89.00</span>
+                    </div>
+                    <div style="padding: 15px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
+                        <div>
+                            <h4 style="margin: 0 0 8px 0; font-size: 1.1rem; color: #111827; font-weight: 600;">Ergonomic Wooden Study Desk</h4>
+                            <p style="margin: 0 0 15px 0; font-size: 0.9rem; color: #6b7280; line-height: 1.4;">Slightly scuffed but completely structural.</p>
+                        </div>
+                        <button onclick="addToCart('Ergonomic Wooden Study Desk', 89.00)" style="width: 100%; background-color: #111827; color: white; border: none; padding: 11px; border-radius: 8px; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                            <i class="fa-solid fa-cart-plus"></i> Add to Basket
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card" style="background: white; border: 1px solid #e5e7eb; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
+                    <div style="position: relative; height: 220px; background-color: #f3f4f6; display: flex; align-items: center; justify-content: center;">
+                        <img src="monitor.jpg" alt="Office Monitor" style="width: 100%; height: 100%; object-fit: cover;">    
+                        <span style="position: absolute; top: 15px; left: 15px; background-color: #00a86b; color: white; padding: 5px 10px; border-radius: 6px; font-weight: bold; font-size: 0.85rem;">RM 299.00</span>
+                    </div>
+                    <div style="padding: 15px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
+                        <div>
+                            <h4 style="margin: 0 0 8px 0; font-size: 1.1rem; color: #111827; font-weight: 600;">Refurbished Office Monitor 24"</h4>
+                            <p style="margin: 0 0 15px 0; font-size: 0.9rem; color: #6b7280; line-height: 1.4;">Tested and certified working bundle packages.</p>
+                        </div>
+                        <button onclick="addToCart('Refurbished Office Monitor 24 Inch', 299.00)" style="width: 100%; background-color: #111827; color: white; border: none; padding: 11px; border-radius: 8px; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                            <i class="fa-solid fa-cart-plus"></i> Add to Basket
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card" style="background: white; border: 1px solid #e5e7eb; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
+                    <div style="position: relative; height: 220px; background-color: #f3f4f6; display: flex; align-items: center; justify-content: center;">
+                        <img src="bicylce.jpg" alt="Cruiser Bicycle" style="width: 100%; height: 100%; object-fit: cover;">
+                        <span style="position: absolute; top: 15px; left: 15px; background-color: #00a86b; color: white; padding: 5px 10px; border-radius: 6px; font-weight: bold; font-size: 0.85rem;">RM 139.00</span>
+                    </div>
+                    <div style="padding: 15px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
+                        <div>
+                            <h4 style="margin: 0 0 8px 0; font-size: 1.1rem; color: #111827; font-weight: 600;">Vintage Cruiser Bicycle</h4>
+                            <p style="margin: 0 0 15px 0; font-size: 0.9rem; color: #6b7280; line-height: 1.4;">Tires hold air and chains are newly oiled.</p>
+                        </div>
+                        <button onclick="addToCart('Vintage Cruiser Bicycle', 139.00)" style="width: 100%; background-color: #111827; color: white; border: none; padding: 11px; border-radius: 8px; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                            <i class="fa-solid fa-cart-plus"></i> Add to Basket
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card" style="background: white; border: 1px solid #e5e7eb; border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
+                    <div style="position: relative; height: 220px; background-color: #f8f9fa; display: flex; align-items: center; justify-content: center; padding: 10px;">
+                        <img src="book.jpg" alt="Engineering Math Book" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                        <span style="position: absolute; top: 15px; left: 15px; background-color: #00a86b; color: white; padding: 5px 10px; border-radius: 6px; font-weight: bold; font-size: 0.85rem;">RM 15.00</span>
+                    </div>
+                    <div style="padding: 15px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
+                        <div>
+                            <h4 style="margin: 0 0 8px 0; font-size: 1.1rem; color: #111827; font-weight: 600;">Engineering Mathematics</h4>
+                            <p style="margin: 0 0 15px 0; font-size: 0.9rem; color: #6b7280; line-height: 1.4;">Clean pages, minimal internal highlighting tags.</p>
+                        </div>
+                        <button onclick="addToCart('Engineering Mathematics', 15.00)" style="width: 100%; background-color: #111827; color: white; border: none; padding: 11px; border-radius: 8px; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                            <i class="fa-solid fa-cart-plus"></i> Add to Basket
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <div id="cartDrawer" style="position: fixed; top: 0; right: -450px; width: 100%; max-width: 400px; height: 100%; background-color: white; box-shadow: -10px 0 25px rgba(0,0,0,0.08); z-index: 10000; display: flex; flex-direction: column; transition: right 0.3s ease-in-out; box-sizing: border-box;">
+        
+        <div style="padding: 24px; border-bottom: 1px solid #e5e7eb; display: flex; justify-content: space-between; align-items: center;">
+            <h3 style="margin: 0; font-size: 1.25rem; color: #111827; display: flex; align-items: center; gap: 10px;">
+                <i class="fa-solid fa-basket-shopping" style="color: #00a86b;"></i> Selected Items
+            </h3>
+            <button onclick="toggleCartDrawer(false)" style="background: none; border: none; font-size: 1.3rem; color: #9ca3af; cursor: pointer;">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <div id="cartItemsList" style="flex-grow: 1; overflow-y: auto; padding: 24px; display: flex; flex-direction: column; gap: 15px;">
+            </div>
+
+        <div style="padding: 24px; border-top: 1px solid #e5e7eb; background-color: #f9fafb;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 15px; font-size: 0.95rem;">
+                <span style="color: #4b5563;">Total Gross (With Fees):</span>
+                <span id="drawerSubtotal" style="font-weight: 700; color: #111827; font-size: 1.2rem;">RM 0.00</span>
+            </div>
+            <button onclick="launchSandboxCheckout()" style="width: 100%; background-color: #00a86b; color: white; border: none; padding: 13px; font-size: 1rem; font-weight: 600; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                Proceed to Secure Checkout <i class="fa-solid fa-arrow-right"></i>
+            </button>
+        </div>
+    </div>
+
+    <div id="cartOverlay" onclick="toggleCartDrawer(false)" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.3); backdrop-filter: blur(1px); z-index: 9999;"></div>
+
+    <script src="cart.js"></script>
+
+     <footer class="site-footer">
+        <div class="section-container footer-copyright">
+            <p>&copy; 2026 GreenAura Team.</p>
+        </div>
+    </footer>
+</body>
+</html>

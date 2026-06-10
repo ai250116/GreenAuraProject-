@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenAura - Sustainable Lifecycle Management</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="nav-container">
+            <div class="brand-logo">
+                <div class="logo-icon"><i class="fa-solid fa-leaf"></i></div>
+                <span class="logo-text">Green<span class="logo-highlight">Aura</span></span>
+            </div>
+
+            <nav class="main-nav">
+                <a href="index.html" class="nav-link active">Home</a>
+                 <a href="about.html" class="nav-link">About</a>
+                <a href="charity.html" class="nav-link">Charity Needs</a>
+                <a href="marketplace.html" class="nav-link">Marketplace</a>
+                <a href="rider.html" class="nav-link">Rider Service</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+
+            <div class="header-actions">
+                <a href="javascript:void(0)" onclick="toggleCartDrawer(true)" class="cart-btn" style="text-decoration: none; position: relative; color: #111827; font-size: 1.2rem;">
+                    <i class="fa-solid fa-basket-shopping"></i>
+                    <span style="position: absolute; top: -6px; right: -8px; background-color: #00a86b; color: white; font-size: 0.7rem; font-weight: bold; border-radius: 50%; width: 16px; height: 16px; display: flex; align-items: center; justify-content: center;">0</span>
+                </a>
+                <a href="auth.html" class="btn btn-primary">Get Started</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <div class="badge-tag">
+                        <i class="fa-solid fa-earth-americas"></i> SDG9 Industry & Innovation
+                    </div>
+                    <h1 class="hero-title">Maximize Product Lifecycles in <span class="text-green">Malaysia</span></h1>
+                    <p class="hero-description">
+                        Protecting the environment by matching real-time community needs with integrated, on-demand logistics. Donate seamlessly or resell pre-loved items instead of throwing them away.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="charity.html" class="btn btn-primary btn-lg">Donate Items Now</a>
+                        <a href="marketplace.html" class="btn btn-secondary btn-lg">Browse Marketplace</a>
+                    </div>
+                </div>
+                
+                <div class="hero-visual">
+                    <div class="impact-card">
+                        <div class="card-header">
+                            <div>
+                                <span class="card-subtitle">Environmental Impact Tracker</span>
+                                <h3 class="card-title">Community Waste Diverted</h3>
+                            </div>
+                            <i class="fa-solid fa-chart-line card-icon"></i>
+                        </div>
+                        <div class="card-metric">12,450 kg</div>
+                        <div class="card-footer">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>Aligned with modern web ecosystem standards.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="section-container footer-grid">
+            <div class="footer-brand">
+                <span class="logo-text text-white">Green<span class="logo-highlight">Aura</span></span>
+                <p>Creating a digital social welfare ecosystem across Malaysia.</p>
+            </div>
+            <div class="footer-links">
+                <h5>Platform</h5>
+                <ul>
+                    <li><a href="charity.html">Charity Feed</a></li>
+                    <li><a href="marketplace.html">Marketplace</a></li>
+                    <li><a href="rider.html">Rider Courier</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h5>Compliance</h5>
+                <ul>
+                    <li><a href="#">SDG9 Impact Matrix</a></li>
+                    <li><a href="#">Data Security Protocols</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="section-container footer-copyright">
+            <p>&copy; 2026 GreenAura Team.</p>
+            <p></p>
+        </div>
+    </footer>
+
+    <div id="cartDrawer" style="position: fixed; top: 0; right: -450px; width: 100%; max-width: 400px; height: 100%; background-color: white; box-shadow: -10px 0 25px rgba(0,0,0,0.08); z-index: 10000; display: flex; flex-direction: column; transition: right 0.3s ease-in-out; box-sizing: border-box; font-family: sans-serif;">
+        
+        <div style="padding: 24px; border-bottom: 1px solid #e5e7eb; display: flex; justify-content: space-between; align-items: center;">
+            <h3 style="margin: 0; font-size: 1.25rem; color: #111827; display: flex; align-items: center; gap: 10px;">
+                <i class="fa-solid fa-basket-shopping" style="color: #00a86b;"></i> Selected Items
+            </h3>
+            <button onclick="toggleCartDrawer(false)" style="background: none; border: none; font-size: 1.3rem; color: #9ca3af; cursor: pointer;">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <div id="cartItemsList" style="flex-grow: 1; overflow-y: auto; padding: 24px; display: flex; flex-direction: column; gap: 15px;">
+            </div>
+
+        <div style="padding: 24px; border-top: 1px solid #e5e7eb; background-color: #f9fafb;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 15px; font-size: 0.95rem;">
+                <span style="color: #4b5563;">Total Gross (With Fees):</span>
+                <span id="drawerSubtotal" style="font-weight: 700; color: #111827; font-size: 1.2rem;">RM 0.00</span>
+            </div>
+            <button onclick="launchSandboxCheckout()" style="width: 100%; background-color: #00a86b; color: white; border: none; padding: 13px; font-size: 1rem; font-weight: 600; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                Proceed to Secure Checkout <i class="fa-solid fa-arrow-right"></i>
+            </button>
+        </div>
+    </div>
+
+    <div id="cartOverlay" onclick="toggleCartDrawer(false)" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.3); backdrop-filter: blur(1px); z-index: 9999;"></div>
+
+    <script src="cart.js"></script>
+</body>
+</html>

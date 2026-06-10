@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campaign Mission Overview - GreenAura</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body style="margin: 0; background-color: #f9fafb; font-family: sans-serif;">
+
+    <header class="site-header" style="background: white; border-bottom: 1px solid #e5e7eb; padding: 15px 0;">
+        <div class="nav-container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center;">
+            <div class="brand-logo" style="display: flex; align-items: center; gap: 8px;">
+                <div class="logo-icon" style="color: #00a86b; font-size: 1.4rem;"><i class="fa-solid fa-leaf"></i></div>
+                <span class="logo-text" style="font-weight: 700; font-size: 1.25rem; color: #111827;">Green<span style="color: #00a86b;">Aura</span></span>
+            </div>
+            <nav class="main-nav" style="display: flex; gap: 20px;">
+                <a href="index.html" class="nav-link" style="text-decoration: none; color: #4b5563; font-weight: 500;">Home</a>
+                <a href="charity.html" class="nav-link active" style="text-decoration: none; color: #00a86b; font-weight: 600;">Charity Needs</a>
+                <a href="marketplace.html" class="nav-link" style="text-decoration: none; color: #4b5563; font-weight: 500;">Marketplace</a>
+                <a href="rider.html" class="nav-link" style="text-decoration: none; color: #4b5563; font-weight: 500;">Rider Service</a>
+            </nav>
+            <div class="header-actions">
+                <a href="javascript:void(0)" onclick="toggleCartDrawer(true)" class="cart-btn" style="text-decoration: none; position: relative; color: #111827; font-size: 1.2rem; padding: 6px;">
+                    <i class="fa-solid fa-basket-shopping"></i>
+                    <span style="position: absolute; top: -4px; right: -6px; background-color: #00a86b; color: white; font-size: 0.7rem; font-weight: bold; border-radius: 50%; width: 16px; height: 16px; display: flex; align-items: center; justify-content: center;">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main style="max-width: 900px; margin: 40px auto; padding: 0 20px; min-height: 80vh; box-sizing: border-box;">
+        
+        <a href="charity.html" style="display: inline-flex; align-items: center; gap: 6px; color: #4b5563; text-decoration: none; font-size: 0.95rem; margin-bottom: 25px; font-weight: 500;">
+            <i class="fa-solid fa-arrow-left"></i> Back to Charity Needs
+        </a>
+
+        <div style="background: white; border: 1px solid #e5e7eb; border-radius: 12px; padding: 35px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02); margin-bottom: 30px;">
+            <div id="badgeContainer" style="margin-bottom: 15px;"></div>
+            
+            <h1 id="eventTitle" style="margin: 0 0 15px 0; font-size: 2rem; color: #111827; font-weight: 700;">Loading Campaign...</h1>
+            
+            <div style="display: flex; gap: 20px; color: #6b7280; font-size: 0.9rem; margin-bottom: 20px; border-bottom: 1px solid #f3f4f6; padding-bottom: 15px;">
+                <span><i class="fa-solid fa-building-ngo" style="color: #00a86b; margin-right: 4px;"></i> <strong id="eventOrg" style="color: #374151;">-</strong></span>
+                <span><i class="fa-solid fa-clock" style="margin-right: 4px;"></i> <span id="eventTime">Recently</span></span>
+            </div>
+
+            <p id="eventDescription" style="color: #4b5563; font-size: 1.05rem; line-height: 1.6; margin: 0 0 25px 0;">
+                Reading data node parameters...
+            </p>
+
+            <div style="background-color: #f9fafb; border-left: 4px solid #00a86b; padding: 15px 20px; border-radius: 0 8px 8px 0;">
+                <h4 style="margin: 0 0 6px 0; color: #111827; font-size: 0.95rem;">Critical Resource Demands:</h4>
+                <p id="eventRequirements" style="margin: 0; color: #4b5563; font-size: 0.9rem; font-weight: 500;">-</p>
+            </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-bottom: 50px;">
+            
+            <div style="background: white; border: 1px solid #e5e7eb; border-radius: 12px; padding: 25px;">
+                <h3 style="margin: 0 0 15px 0; font-size: 1.15rem; color: #111827;"><i class="fa-solid fa-hand-holding-heart" style="color: #00a86b; margin-right: 6px;"></i> I Will Drop This Off Myself</h3>
+                <p style="font-size: 0.85rem; color: #6b7280; line-height: 1.4; margin-bottom: 15px;">Register your contribution item quantities so the NGO staff can inventory space preparation requirements.</p>
+                
+                <form onsubmit="handlePledgeSubmit(event)">
+                    <div style="margin-bottom: 12px;">
+                        <label style="display: block; font-size: 0.8rem; font-weight: 600; color: #4b5563; margin-bottom: 4px;">Items being donated</label>
+                        <input type="text" required placeholder="E.g., 3 bags of warm clothes" style="width: 100%; padding: 10px; border: 1px solid #d1d5db; border-radius: 6px; box-sizing: border-box;">
+                    </div>
+                    <button type="submit" style="width: 100%; background-color: #111827; color: white; border: none; padding: 11px; border-radius: 6px; font-weight: 600; cursor: pointer;">
+                        Register Drop-off Intent
+                    </button>
+                </form>
+            </div>
+
+            <div style="background: #e6f6f0; border: 1px solid rgba(0,168,107,0.2); border-radius: 12px; padding: 25px; display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                    <h3 style="margin: 0 0 15px 0; font-size: 1.15rem; color: #00774b;"><i class="fa-solid fa-truck-fast" style="margin-right: 6px;"></i> Request Courier Pick-up</h3>
+                    <p style="font-size: 0.9rem; color: #004d30; line-height: 1.5; margin: 0;">
+                        Don't have time or transportation to drop it off yourself? We can hook an on-demand logistics rider directly to your physical coordinates via our transit management platform.
+                    </p>
+                </div>
+                <a href="request-rider.html" style="text-align: center; background-color: #00a86b; color: white; text-decoration: none; padding: 12px; border-radius: 6px; font-weight: 600; display: block; box-shadow: 0 2px 4px rgba(0,168,107,0.15);">
+                    <i class="fa-solid fa-route"></i> Book GreenAura Rider Now
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <div id="cartDrawer" style="position: fixed; top: 0; right: -450px; width: 100; max-width: 400px; height: 100%; background-color: white; z-index: 10000; transition: right 0.3s ease;"></div>
+    <div id="cartOverlay" onclick="toggleCartDrawer(false)" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.3); z-index: 9999;"></div>
+
+    <script>
+        // Dictionary dataset containing details for each campaign target
+        const eventDatabase = {
+            flood: {
+                title: "Flood Victim Relief Drive",
+                org: "Johor Welfare Hub",
+                time: "10 mins ago",
+                badgeText: "URGENT REQUEST",
+                badgeBg: "#fef2f2",
+                badgeColor: "#ef4444",
+                desc: "The local community shelter in Batu Pahat urgently requires immediate community intervention due to unexpected flash floods. Families have been displaced and are staying at a temporary resource center. Your support will directly assist in establishing baseline comfort layers for affected individuals.",
+                reqs: "Wearable adult clothing, clean blankets, pillows, and non-perishable food dry rations."
+            },
+            ewaste: {
+                title: "E-Waste Sustainable Materials Donation Drive",
+                org: "KL Eco Center",
+                time: "2 hours ago",
+                badgeText: "NEARBY EVENT",
+                badgeBg: "#eff6ff",
+                badgeColor: "#3b82f6",
+                desc: "Drop off your broken electronics, dead smartphones, expired personal laptops, or damaged power cords this weekend. Our regional collection framework strips heavy internal components through certified green recycling workflows to prevent chemical elements from bleeding into landfill systems.",
+                reqs: "Old laptops, phones, computer motherboards, charging cables, and household batteries."
+            },
+            books: {
+                title: "School Textbooks Distribution Collection",
+                org: "Buku For All NGO",
+                time: "1 day ago",
+                badgeText: "STANDARD NEED",
+                badgeBg: "#fef9c3",
+                badgeColor: "#a16207",
+                desc: "Collecting primary and secondary school textbooks for underserved children ahead of the upcoming institutional academic semester intake. Help us eliminate educational boundaries by redirecting your pre-loved learning assets directly to children who need them.",
+                reqs: "Primary and secondary school reference textbooks, unused notebooks, or basic school stationery."
+            }
+        };
+
+        function renderEventDetails() {
+            // Extract URL parameters (?event=xyz)
+            const urlParams = new URLSearchParams(window.location.search);
+            const eventKey = urlParams.get('event') || 'flood'; // fallback default if none provided
+            
+            const data = eventDatabase[eventKey];
+            
+            if (!data) {
+                document.getElementById('eventTitle').textContent = "Campaign Not Found";
+                return;
+            }
+
+            // Bind values dynamically directly to DOM View Nodes
+            document.title = `${data.title} - GreenAura`;
+            document.getElementById('eventTitle').textContent = data.title;
+            document.getElementById('eventOrg').textContent = data.org;
+            document.getElementById('eventTime').textContent = data.time;
+            document.getElementById('eventDescription').textContent = data.desc;
+            document.getElementById('eventRequirements').textContent = data.reqs;
+
+            // Generate status label badge markup dynamically
+            document.getElementById('badgeContainer').innerHTML = `
+                <span style="background-color: ${data.badgeBg}; color: ${data.badgeColor}; padding: 6px 12px; border-radius: 6px; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.05em;">
+                    ${data.badgeText}
+                </span>
+            `;
+        }
+
+        function handlePledgeSubmit(event) {
+            event.preventDefault();
+            alert("🌟 Pledge successfully logged!\nThank you for organizing your pre-loved resources to support this community drive.");
+            window.location.href = "charity.html";
+        }
+
+        // Run mapping setup logic on execution lifecycle load
+        renderEventDetails();
+    </script>
+
+    <script src="cart.js"></script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request a Rider - GreenAura</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="nav-container">
+            <div class="brand-logo">
+                <div class="logo-icon"><i class="fa-solid fa-leaf"></i></div>
+                <span class="logo-text">Green<span class="logo-highlight">Aura</span></span>
+            </div>
+            <nav class="main-nav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="charity.html" class="nav-link">Charity Needs</a>
+                <a href="marketplace.html" class="nav-link">Marketplace</a>
+                <a href="rider.html" class="nav-link active">Rider Service</a>
+            </nav>
+            <div class="header-actions">
+                <a href="javascript:void(0)" onclick="toggleCartDrawer(true)" class="cart-btn" style="text-decoration: none; position: relative; color: #111827; font-size: 1.2rem;">
+                    <i class="fa-solid fa-basket-shopping"></i>
+                    <span style="position: absolute; top: -6px; right: -8px; background-color: #00a86b; color: white; font-size: 0.7rem; font-weight: bold; border-radius: 50%; width: 16px; height: 16px; display: flex; align-items: center; justify-content: center;">0</span>
+                </a>
+                <a href="auth.html" class="btn btn-primary">Get Started</a>
+            </div>
+        </div>
+    </header>
+
+    <main style="padding: 60px 0; background-color: #f9fafb; min-height: 80vh; display: flex; justify-content: center; align-items: center; box-sizing: border-box; font-family: sans-serif;">
+        <div style="background-color: white; width: 100%; max-width: 550px; border-radius: 12px; padding: 40px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03); border: 1px solid #e5e7eb; box-sizing: border-box;">
+            
+            <a href="rider.html" style="display: inline-flex; align-items: center; gap: 6px; color: #4b5563; text-decoration: none; font-size: 0.9rem; margin-bottom: 20px;">
+                <i class="fa-solid fa-arrow-left"></i> Back to Rider Portal
+            </a>
+
+            <h3 style="margin: 0 0 10px 0; font-size: 1.6rem; color: #111827; display: flex; align-items: center; gap: 10px;">
+                <i class="fa-solid fa-route" style="color: #00a86b;"></i> Dispatch Logistics Request
+            </h3>
+            <p style="margin: 0 0 25px 0; color: #6b7280; font-size: 0.95rem; line-height: 1.4;">
+                Complete the dispatch template options below to hook an on-demand courier directly to your physical address coordinates.
+            </p>
+
+            <form id="riderForm" onsubmit="handleDeliverySubmit(event)">
+                <div style="margin-bottom: 18px;">
+                    <label style="display: block; font-size: 0.85rem; font-weight: 600; color: #374151; margin-bottom: 6px;">Pick-up Address</label>
+                    <input type="text" required placeholder="Street name, house number, Parit Raja, Johor" style="width: 100%; padding: 11px; border: 1px solid #d1d5db; border-radius: 6px; box-sizing: border-box; font-size: 0.95rem;">
+                </div>
+
+                <div style="margin-bottom: 18px;">
+                    <label style="display: block; font-size: 0.85rem; font-weight: 600; color: #374151; margin-bottom: 6px;">Donation / Pre-Loved Item Details</label>
+                    <textarea required placeholder="E.g., 2 boxes of primary textbooks, 1 heavy study table" rows="3" style="width: 100%; padding: 11px; border: 1px solid #d1d5db; border-radius: 6px; box-sizing: border-box; font-family: sans-serif; font-size: 0.95rem; line-height: 1.4;"></textarea>
+                </div>
+
+                <div style="margin-bottom: 25px; display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <div>
+                        <label style="display: block; font-size: 0.85rem; font-weight: 600; color: #374151; margin-bottom: 6px;">Preferred Collection Date</label>
+                        <input type="date" required style="width: 100%; padding: 11px; border: 1px solid #d1d5db; border-radius: 6px; box-sizing: border-box; font-size: 0.95rem;">
+                    </div>
+                    <div>
+                        <label style="display: block; font-size: 0.85rem; font-weight: 600; color: #374151; margin-bottom: 6px;">Contact Phone Number</label>
+                        <input type="tel" required placeholder="E.g., 012-3456789" style="width: 100%; padding: 11px; border: 1px solid #d1d5db; border-radius: 6px; box-sizing: border-box; font-size: 0.95rem;">
+                    </div>
+                </div>
+
+                <button type="submit" style="width: 100%; background-color: #00a86b; color: white; border: none; padding: 14px; font-size: 1rem; font-weight: 600; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 2px 4px rgba(0,168,107,0.2);">
+                    <i class="fa-solid fa-paper-plane"></i> Confirm & Dispatch Rider
+                </button>
+            </form>
+        </div>
+    </main>
+
+    <footer class="site-footer" style="background-color: white; border-top: 1px solid #e5e7eb; padding: 20px 0; text-align: center;">
+        <div class="section-container footer-copyright">
+            <p style="margin: 0; color: #6b7280; font-size: 0.85rem;">&copy; 2026 GreenAura Team.</p>
+        </div>
+    </footer>
+
+    <div id="cartDrawer" style="position: fixed; top: 0; right: -450px; width: 100%; max-width: 400px; height: 100%; background-color: white; box-shadow: -10px 0 25px rgba(0,0,0,0.08); z-index: 10000; display: flex; flex-direction: column; transition: right 0.3s ease-in-out; box-sizing: border-box; font-family: sans-serif;">
+        
+        <div style="padding: 24px; border-bottom: 1px solid #e5e7eb; display: flex; justify-content: space-between; align-items: center;">
+            <h3 style="margin: 0; font-size: 1.25rem; color: #111827; display: flex; align-items: center; gap: 10px;">
+                <i class="fa-solid fa-basket-shopping" style="color: #00a86b;"></i> Selected Items
+            </h3>
+            <button onclick="toggleCartDrawer(false)" style="background: none; border: none; font-size: 1.3rem; color: #9ca3af; cursor: pointer;">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <div id="cartItemsList" style="flex-grow: 1; overflow-y: auto; padding: 24px; display: flex; flex-direction: column; gap: 15px;">
+            </div>
+
+        <div style="padding: 24px; border-top: 1px solid #e5e7eb; background-color: #f9fafb;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 15px; font-size: 0.95rem;">
+                <span style="color: #4b5563;">Total Gross (With Fees):</span>
+                <span id="drawerSubtotal" style="font-weight: 700; color: #111827; font-size: 1.2rem;">RM 0.00</span>
+            </div>
+            <button onclick="launchSandboxCheckout()" style="width: 100%; background-color: #00a86b; color: white; border: none; padding: 13px; font-size: 1rem; font-weight: 600; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                Proceed to Secure Checkout <i class="fa-solid fa-arrow-right"></i>
+            </button>
+        </div>
+    </div>
+
+    <div id="cartOverlay" onclick="toggleCartDrawer(false)" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.3); backdrop-filter: blur(1px); z-index: 9999;"></div>
+
+    <script>
+        // Local Form Route Redirection
+        function handleDeliverySubmit(event) {
+            event.preventDefault();
+            alert("🚀 Rider Hook Request Successfully Registered!\nYour on-demand courier dispatch has been queued. Returning you to the home dashboard portal.");
+            window.location.href = "rider.html";
+        }
+    </script>
+
+    <script src="cart.js"></script>
+</body>
+</html>

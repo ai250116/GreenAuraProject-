@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Started - GreenAura</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body style="background-color: #f9fafb; min-height: 100vh; display: flex; flex-direction: column; font-family: sans-serif; margin: 0;">
+
+    <header class="site-header" style="background: white; border-bottom: 1px solid #e5e7eb;">
+        <div class="nav-container" style="max-width: 1200px; margin: 0 auto; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center;">
+            <div class="brand-logo" style="display: flex; align-items: center; gap: 8px;">
+                <div class="logo-icon" style="color: #00a86b; font-size: 1.5rem;"><i class="fa-solid fa-leaf"></i></div>
+                <span class="logo-text" style="font-weight: 700; font-size: 1.3rem; color: #111827;">Green<span style="color: #00a86b;">Aura</span></span>
+            </div>
+            <a href="index.html" style="text-decoration: none; color: #4b5563; font-size: 0.95rem; display: flex; align-items: center; gap: 6px;">
+                <i class="fa-solid fa-house"></i> Return Home
+            </a>
+        </div>
+    </header>
+
+    <main style="flex-grow: 1; display: flex; align-items: center; justify-content: center; padding: 40px 20px; box-sizing: border-box;">
+        <div style="background: white; width: 100%; max-width: 960px; border-radius: 16px; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05), 0 8px 10px -6px rgba(0,0,0,0.05); border: 1px solid #e5e7eb; display: flex; overflow: hidden; min-height: 520px; box-sizing: border-box;">
+            
+            <div style="flex: 1; background: linear-gradient(135deg, #111827, #064e3b); color: white; padding: 45px; display: flex; flex-direction: column; justify-content: space-between; box-sizing: border-box;">
+                <div>
+                    <h2 style="font-size: 2rem; margin: 0 0 15px 0; font-weight: 700; line-height: 1.2;">Join the GreenAura Ecosystem</h2>
+                    <p style="color: #9ca3af; line-height: 1.6; font-size: 0.95rem; margin: 0;">
+                        Create a lifecycle account today to donate pre-loved essentials, trade items on our open marketplace, or request on-demand logistics riders.
+                    </p>
+                </div>
+                
+                <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 20px; backdrop-filter: blur(4px);">
+                    <div style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: #00a86b; font-weight: 600; margin-bottom: 4px;">Community Progress Dashboard</div>
+                    <div style="font-size: 1.8rem; font-weight: 700; margin-bottom: 4px;">12,450 kg</div>
+                    <div style="font-size: 0.85rem; color: #9ca3af;">Of baseline municipal household waste diverted safely.</div>
+                </div>
+            </div>
+
+            <div style="flex: 1; padding: 45px; display: flex; flex-direction: column; box-sizing: border-box;">
+                
+                <div style="display: flex; background-color: #f3f4f6; padding: 4px; border-radius: 8px; margin-bottom: 30px;">
+                    <button id="tab-login" onclick="switchAuthTab('login')" style="flex: 1; border: none; padding: 10px; font-weight: 600; border-radius: 6px; cursor: pointer; font-size: 0.95rem; transition: all 0.2s; background-color: #111827; color: white;">
+                        Log In
+                    </button>
+                    <button id="tab-signup" onclick="switchAuthTab('signup')" style="flex: 1; border: none; padding: 10px; font-weight: 600; border-radius: 6px; cursor: pointer; font-size: 0.95rem; transition: all 0.2s; background-color: transparent; color: #4b5563;">
+                        Sign Up
+                    </button>
+                </div>
+
+                <form id="form-login" onsubmit="handleAuthSubmit(event, 'login')" style="display: flex; flex-direction: column; gap: 16px; flex-grow: 1; justify-content: center;">
+                    <div>
+                        <label style="display: block; font-size: 0.85rem; font-weight: 600; color: #374151; margin-bottom: 6px;">Email Address</label>
+                        <input type="email" required placeholder="name@domain.com" style="width: 100%; padding: 11px; border: 1px solid #d1d5db; border-radius: 6px; box-sizing: border-box; font-size: 0.95rem;">
+                    </div>
+                    <div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+                            <label style="font-size: 0.85rem; font-weight: 600; color: #374151;">Password</label>
+                            <a href="#forgot" style="font-size: 0.8rem; color: #00a86b; text-decoration: none;">Forgot?</a>
+                        </div>
+                        <div>
+                            <label style="display: block; font-size: 0.85rem; font-weight: 600; color: #374151; margin-bottom: 6px;">Choose Password</label>
+                            <input type="password" id="signupPassword" required minlength="8" placeholder="Minimum 8 characters" style="width: 100%; padding: 11px; border: 1px solid #d1d5db; border-radius: 6px; box-sizing: border-box; font-size: 0.95rem;">
+                    </div>
+                    </div>
+                    <button type="submit" style="width: 100%; background-color: #111827; color: white; border: none; padding: 12px; font-size: 1rem; font-weight: 600; border-radius: 8px; cursor: pointer; margin-top: 10px; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                        Sign In <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                    </button>
+                </form>
+
+                <form id="form-signup" onsubmit="handleAuthSubmit(event, 'signup')" style="display: none; flex-direction: column; gap: 16px; flex-grow: 1; justify-content: center;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                        <div>
+                            <label style="display: block; font-size: 0.85rem; font-weight: 600; color: #374151; margin-bottom: 6px;">Full Name</label>
+                            <input type="text" placeholder="John Doe" style="width: 100%; padding: 11px; border: 1px solid #d1d5db; border-radius: 6px; box-sizing: border-box; font-size: 0.95rem;">
+                        </div>
+                        <div>
+                            <label style="display: block; font-size: 0.85rem; font-weight: 600; color: #374151; margin-bottom: 6px;">Contact No.</label>
+                            <input type="tel" placeholder="01X-XXXXXXX" style="width: 100%; padding: 11px; border: 1px solid #d1d5db; border-radius: 6px; box-sizing: border-box; font-size: 0.95rem;">
+                        </div>
+                    </div>
+                    <div>
+                        <label style="display: block; font-size: 0.85rem; font-weight: 600; color: #374151; margin-bottom: 6px;">Email Address</label>
+                        <input type="email" placeholder="name@domain.com" style="width: 100%; padding: 11px; border: 1px solid #d1d5db; border-radius: 6px; box-sizing: border-box; font-size: 0.95rem;">
+                    </div>
+                    <div>
+                        <label style="display: block; font-size: 0.85rem; font-weight: 600; color: #374151; margin-bottom: 6px;">Choose Password</label>
+                        <input type="password" placeholder="Minimum 8 characters" style="width: 100%; padding: 11px; border: 1px solid #d1d5db; border-radius: 6px; box-sizing: border-box; font-size: 0.95rem;">
+                    </div>
+                    <button type="submit" style="width: 100%; background-color: #00a86b; color: white; border: none; padding: 12px; font-size: 1rem; font-weight: 600; border-radius: 8px; cursor: pointer; margin-top: 10px; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                        Create Account <i class="fa-solid fa-user-plus"></i>
+                    </button>
+                </form>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer" style="background-color: white; border-top: 1px solid #e5e7eb; padding: 20px 0; text-align: center;">
+        <p style="margin: 0; color: #6b7280; font-size: 0.85rem;">&copy; 2026 GreenAura Team.</p>
+    </footer>
+
+    <script>
+        // Smooth tab switching engine logic
+        function switchAuthTab(targetTab) {
+            const loginTab = document.getElementById('tab-login');
+            const signupTab = document.getElementById('tab-signup');
+            const loginForm = document.getElementById('form-login');
+            const signupForm = document.getElementById('form-signup');
+
+            if (targetTab === 'login') {
+                // Style Adjustments
+                loginTab.style.backgroundColor = '#111827';
+                loginTab.style.color = 'white';
+                signupTab.style.backgroundColor = 'transparent';
+                signupTab.style.color = '#4b5563';
+                // Visibility Adjustments
+                loginForm.style.display = 'flex';
+                signupForm.style.display = 'none';
+            } else {
+                // Style Adjustments
+                signupTab.style.backgroundColor = '#00a86b';
+                signupTab.style.color = 'white';
+                loginTab.style.backgroundColor = 'transparent';
+                loginTab.style.color = '#4b5563';
+                // Visibility Adjustments
+                signupForm.style.display = 'flex';
+                loginForm.style.display = 'none';
+            }
+        }
+
+        // Processing submissions
+        function handleAuthSubmit(event, mode) {
+            event.preventDefault();
+            
+            if(mode === 'login') {
+                alert("🔐 Authentication Successful!\nWelcome back to GreenAura. Loading your system dashboard window space...");
+            } else {
+                alert("🎉 Account Created Successfully!\nYour credentials have been added to our lifecycle ecosystem node. Welcome to the team!");
+            }
+            
+            // Redirect the verified user straight back to the primary main landing page
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+</html>

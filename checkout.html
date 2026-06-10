@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Checkout - GreenAura</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body style="margin: 0; background-color: #f9fafb; font-family: sans-serif;">
+
+    <header class="site-header" style="background: white; border-bottom: 1px solid #e5e7eb; padding: 15px 0;">
+        <div class="nav-container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center;">
+            <div class="brand-logo" style="display: flex; align-items: center; gap: 8px;">
+                <div class="logo-icon" style="color: #00a86b; font-size: 1.4rem;"><i class="fa-solid fa-leaf"></i></div>
+                <span class="logo-text" style="font-weight: 700; font-size: 1.25rem; color: #111827;">Green<span style="color: #00a86b;">Aura</span></span>
+            </div>
+            <nav class="main-nav" style="display: flex; gap: 20px;">
+                <a href="index.html" class="nav-link" style="text-decoration: none; color: #4b5563;">Home</a>
+                <a href="charity.html" class="nav-link" style="text-decoration: none; color: #4b5563;">Charity Needs</a>
+                <a href="marketplace.html" class="nav-link" style="text-decoration: none; color: #4b5563;">Marketplace</a>
+                <a href="rider.html" class="nav-link" style="text-decoration: none; color: #4b5563;">Rider Service</a>
+            </nav>
+            <div></div> </div>
+    </header>
+
+    <main style="max-width: 1000px; margin: 40px auto; padding: 0 20px;">
+        <div style="display: grid; grid-template-columns: 1fr 380px; gap: 30px; align-items: start;">
+            
+            <div style="background: white; border: 1px solid #e5e7eb; border-radius: 12px; padding: 30px; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
+                <h2 style="margin: 0 0 20px 0; font-size: 1.5rem; color: #111827;"><i class="fa-solid fa-shield-halved" style="color: #00a86b; margin-right: 8px;"></i> Secure Payment Information</h2>
+                
+                <form id="paymentForm" onsubmit="executeMockPayment(event)">
+                    <h3 style="font-size: 1rem; color: #374151; margin-bottom: 12px; border-bottom: 1px solid #f3f4f6; padding-bottom: 6px;">Customer & Delivery Info</h3>
+                    <div style="margin-bottom: 15px;">
+                        <label style="display: block; font-size: 0.85rem; font-weight: 600; color: #4b5563; margin-bottom: 6px;">Full Name</label>
+                        <input type="text" required placeholder="John Doe" style="width: 100%; padding: 10px; border: 1px solid #d1d5db; border-radius: 6px; box-sizing: border-box;">
+                    </div>
+                    <div style="margin-bottom: 25px;">
+                        <label style="display: block; font-size: 0.85rem; font-weight: 600; color: #4b5563; margin-bottom: 6px;">Shipping Address</label>
+                        <input type="text" required placeholder="Parit Raja, Batu Pahat, Johor" style="width: 100%; padding: 10px; border: 1px solid #d1d5db; border-radius: 6px; box-sizing: border-box;">
+                    </div>
+
+                    <h3 style="font-size: 1rem; color: #374151; margin-bottom: 12px; border-bottom: 1px solid #f3f4f6; padding-bottom: 6px;">Card details</h3>
+                    <div style="margin-bottom: 15px;">
+                        <label style="display: block; font-size: 0.85rem; font-weight: 600; color: #4b5563; margin-bottom: 6px;">Cardholder Name</label>
+                        <input type="text" required placeholder="John Doe" style="width: 100%; padding: 10px; border: 1px solid #d1d5db; border-radius: 6px; box-sizing: border-box;">
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <label style="display: block; font-size: 0.85rem; font-weight: 600; color: #4b5563; margin-bottom: 6px;">Card Number</label>
+                        <input type="text" required pattern="\d{16}" title="Please provide a valid 16-digit card number" placeholder="1234 5678 1234 5678" style="width: 100%; padding: 10px; border: 1px solid #d1d5db; border-radius: 6px; box-sizing: border-box;">
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 25px;">
+                        <div>
+                            <label style="display: block; font-size: 0.85rem; font-weight: 600; color: #4b5563; margin-bottom: 6px;">Expiration Date</label>
+                            <input type="text" required placeholder="MM/YY" style="width: 100%; padding: 10px; border: 1px solid #d1d5db; border-radius: 6px; box-sizing: border-box;">
+                        </div>
+                        <div>
+                            <label style="display: block; font-size: 0.85rem; font-weight: 600; color: #4b5563; margin-bottom: 6px;">CVV</label>
+                            <input type="text" required pattern="\d{3}" title="3-digit security code" placeholder="123" style="width: 100%; padding: 10px; border: 1px solid #d1d5db; border-radius: 6px; box-sizing: border-box;">
+                        </div>
+                    </div>
+
+                    <button type="submit" style="width: 100%; background-color: #00a86b; color: white; border: none; padding: 14px; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer;">
+                        <i class="fa-solid fa-lock"></i> Authorize Secure Payment
+                    </button>
+                </form>
+            </div>
+
+            <div style="background: white; border: 1px solid #e5e7eb; border-radius: 12px; padding: 24px; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
+                <h3 style="margin: 0 0 15px 0; font-size: 1.15rem; color: #111827;">Order Summary</h3>
+                <div id="checkoutSummaryList" style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px; max-height: 240px; overflow-y: auto; border-bottom: 1px solid #f3f4f6; padding-bottom: 15px;">
+                    </div>
+                <div style="display: flex; justify-content: space-between; font-weight: bold; font-size: 1.1rem; color: #111827;">
+                    <span>Total Bill:</span>
+                    <span id="checkoutGrandTotal">RM 0.00</span>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        // Read Cart from local storage specifically for this viewport block
+        const cartItems = JSON.parse(localStorage.getItem('greenaura_cart')) || [];
+        
+        function populateCheckoutInvoice() {
+            const container = document.getElementById('checkoutSummaryList');
+            const totalDisplay = document.getElementById('checkoutGrandTotal');
+            if(cartItems.length === 0) {
+                window.location.href = 'marketplace.html'; // Kick out back to storefront if empty
+                return;
+            }
+            
+            let grandTotal = 0;
+            container.innerHTML = '';
+            
+            cartItems.forEach(item => {
+                const rowTotal = item.price * item.quantity;
+                grandTotal += rowTotal;
+                container.innerHTML += `
+                    <div style="display: flex; justify-content: space-between; font-size: 0.9rem; color: #4b5563;">
+                        <span>${item.name} (x${item.quantity})</span>
+                        <span style="font-weight: 600; color: #111827;">RM ${rowTotal.toFixed(2)}</span>
+                    </div>
+                `;
+            });
+            totalDisplay.textContent = `RM ${grandTotal.toFixed(2)}`;
+        }
+
+        function executeMockPayment(event) {
+            event.preventDefault();
+            alert("✅ Payment Authorized Successfully!\nYour lifecycle pre-loved carbon saving node transactions have been settled. Thank you for using GreenAura!");
+            localStorage.removeItem('greenaura_cart'); // Clear cart data completely
+            window.location.href = 'order-success.html'; // Take them back to shop dashboard
+        }
+
+        // Run immediately
+        populateCheckoutInvoice();
+    </script>
+</body>
+</html>
